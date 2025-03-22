@@ -24,7 +24,7 @@ const CatLoader = ({ isDarkMode, isGodspeedMode }: CatLoaderProps) => {
           : "bg-blue-100"
       } ${
         isDarkMode ? "text-white" : "text-gray-900"
-      } overflow-hidden relative transition-colors duration-700 w-screen h-screen flex items-center justify-center`}
+      } overflow-hidden relative transition-colors duration-700 w-screen h-screen flex flex-col items-center justify-center`}
     >
       {/* Background Grid */}
       <div
@@ -302,6 +302,22 @@ const CatLoader = ({ isDarkMode, isGodspeedMode }: CatLoaderProps) => {
           </svg>
         </div>
       </div>
+
+      {/* Progress Bar */}
+      <div className="w-72 h-2 bg-gray-300 rounded-full mt-8 overflow-hidden">
+        <motion.div
+          className="h-full bg-blue-500 rounded-full"
+          initial={{ width: "0%" }}
+          animate={{ width: "100%" }}
+          transition={{
+            duration: 3,
+            repeat: Number.POSITIVE_INFINITY,
+            repeatType: "reverse",
+            ease: "easeInOut",
+          }}
+        />
+      </div>
+
       <style jsx>{`
         @keyframes tail {
           0% {
